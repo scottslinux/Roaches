@@ -7,7 +7,7 @@
 #include "swarm.h"
 
 
-static int laserpower;
+
 
 
 struct shot
@@ -26,7 +26,7 @@ struct shot
 class missile
 {
 
-    
+static int laserpower;      //this was wrongfully declared outside of the class :(
 private:
     int activeshots;    //leave as a reminder of what could have been
     
