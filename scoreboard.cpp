@@ -30,6 +30,7 @@ void scoreboard::drawscreenframe()
     DrawTextEx(titlefont,"INFESTATION",{1020,45},150,5,Color{0,0,0,128});  //blackshaddow
     DrawTextEx(titlefont,"INFESTATION",{1000,50},150,5,YELLOW);
 
+    //asdasda
 
     Rectangle sourcerec={0,0,512,512};
     Rectangle destin={2300,50,200,200};
