@@ -5,7 +5,7 @@
 //===================================================
 scoreboard::scoreboard()    //constructor
 {
-    sink=LoadTexture("resources/sink.png");
+    
     playerhealth=100;
     score=0;
     level=1;
@@ -22,9 +22,9 @@ scoreboard::scoreboard()    //constructor
 void scoreboard::drawscreenframe()
 {
 
-    Rectangle source={0,0,sink.width,sink.height};
+    Rectangle source={0,0,media::sink.width,media::sink.height};       //sink is a static variable from media class
     Rectangle dest={0,0,GetMonitorWidth(0),GetMonitorHeight(0)};
-    DrawTexturePro(sink,source,dest,(Vector2){0,0},0,WHITE);
+    DrawTexturePro(media::sink,source,dest,(Vector2){0,0},0,WHITE);
 
     DrawRectangleGradientV(0,0,GetScreenWidth(),250,GREEN,DARKGREEN);
     DrawTextEx(titlefont,"INFESTATION",{1020,45},150,5,Color{0,0,0,128});  //blackshaddow

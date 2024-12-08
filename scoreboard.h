@@ -19,7 +19,7 @@ private:
     int level;
     double timer;
 
-    Texture2D sink;
+    
     Font titlefont;
     Texture2D lifeIcon;
 

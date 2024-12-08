@@ -5,12 +5,13 @@
 #include "Hero.h"
 #include "missile.h"
 #include "media.h"
+#include "scoreboard.h""
 
 
 
 int main()
 {
-    InitWindow(2500,2000,"TEST WINDOW");
+    InitWindow(3500,2000,"TEST WINDOW");
     SetTargetFPS(60);
     InitAudioDevice();
 
@@ -19,6 +20,7 @@ int main()
     swarm myswarm(10);
     Hero guy;
     missile shooter;
+    scoreboard screentitles;
 
     media::loadMediaFiles();        // Load up all of the sites and sounds!
 
@@ -32,7 +34,9 @@ int main()
 
         BeginDrawing();
 
-            DrawTexture(media::sink,0,0,WHITE);
+            
+            screentitles.drawscreenframe();
+
             myswarm.displayswarm();
 
             guy.updateplayer();
