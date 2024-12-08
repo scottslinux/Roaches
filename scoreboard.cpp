@@ -1,4 +1,5 @@
 #include "scoreboard.h"
+#include "media.h"
 
 
 //===================================================
@@ -36,7 +37,7 @@ void scoreboard::drawscreenframe()
     for(int i=1;i<=3;i++)
     {
         destin.x=2000+i*120;
-        DrawTexturePro(Hero::heroimage,sourcerec,destin,{0.0,0.0},0,tint);
+        DrawTexturePro(media::heroimage,sourcerec,destin,{0.0,0.0},0,tint);
     }
 
     int laser=missile::getremainlaser();
