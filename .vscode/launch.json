@@ -5,7 +5,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/infestation_bin", // Ensure this matches the output file of the Makefile
+            "program": "${workspaceFolder}/myProject_bin", // Ensure this matches the output file of the Makefile
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

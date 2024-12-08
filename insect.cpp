@@ -1,6 +1,7 @@
 #include "insect.h"
 #include <vector>
 #include "swarm.h"
+#include "media.h"
 
 
 
@@ -128,8 +129,8 @@ void insect::drawroach()
     colrec={pos.x-128/2*scale,pos.y-128/2*scale,128*scale,128*scale};
 
     //draw the shadow first and then roach on top of it
-    DrawTexturePro(bug,source,dest2,spritecntr,rotation,shadow);
-    DrawTexturePro(bug,source,dest,spritecntr,rotation,WHITE);
+    DrawTexturePro(media::bug,source,dest2,spritecntr,rotation,shadow);
+    DrawTexturePro(media::bug,source,dest,spritecntr,rotation,WHITE);
 
     //Create a circle around each roach for collision detection
     //vary diameter according to the scale of the roach
