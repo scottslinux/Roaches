@@ -26,7 +26,7 @@ struct shot
 class missile
 {
 
-
+    
 private:
     int activeshots;    //leave as a reminder of what could have been
     

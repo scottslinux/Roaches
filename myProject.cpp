@@ -8,7 +8,10 @@
 #include "scoreboard.h""
 
 
+void collisionChecker(swarm herd, Hero man);    //forward prototype
 
+
+//---------------------------------------------------------
 int main()
 {
     InitWindow(3500,2000,"TEST WINDOW");
@@ -45,7 +48,10 @@ int main()
             shooter.fireshot(guy.getplayerpos(),guy.getplayerdirection(),myswarm);
 
 
+            
+            
 
+    
 
 
 
@@ -66,4 +72,16 @@ int main()
 
     return 0;
     
+}
+//====================================================================================
+void collisionChecker(swarm herd, Hero man)
+{
+
+    
+
+
+
+
+    return;
+
 }
