@@ -99,7 +99,7 @@ void Hero::drawplayer()
     
 
     DrawTexturePro(media::heroimage,source,destin,{0,0},0,WHITE);
-    DrawRectangleLinesEx(colrec,5,RED);
+    //DrawRectangleLinesEx(colrec,5,RED);   //rectangle around player for debugging
 
 
     return;
@@ -132,40 +132,7 @@ void Hero::controllerinput()
     if(vel.x<0)
         direction=-1;
 
-    /*Display the data
-    Rectangle border={350,100,800,200};
-    DrawRectangle(350,100,800,200,WHITE);
-    DrawRectangleLinesEx(border,5,BLACK);
-
-    ss << "X AXIS(0) : "<<std::fixed << std::setprecision(3) << x
-    <<" Y AXIS(1): "<<std::fixed << std::setprecision(3)<<y;
-
-        // Convert to string
-    std::string formattedFloat = ss.str();
-
-    DrawText(formattedFloat.c_str(),400,200,30,DARKBLUE);
-
-    ss.str(""); //clear the stringstream variable
-    ss.clear(); //and flags
-    ss<<"Direction Flag: "<<direction;
-    std::string dir=ss.str();
-    DrawText(dir.c_str(),500,300,30,DARKGREEN);
-
-if (!colliding)
-{
-
-    DrawCircle(1000,300,100,Color{0,245,0,50}); //lighting effect low alpha (very transparent)
-    DrawCircle(1000,300,40,GREEN);
-    DrawRing({1000,300},40,50,0,360,36,Color{222,222,255,255});
-}
-    else
-    {
-        DrawCircle(1000,300,100,Color{255,0,0,50}); //lighting effect low alpha (very transparent)
-        DrawCircle(1000,300,40,RED);
-        --collisioneventcountdown;
-
-    }
-*/
+ 
 
 
     return;
@@ -175,9 +142,7 @@ if (!colliding)
 Rectangle Hero::getplayerrect()
 {
     return colrec;
-    system("clear");
-    std::cout<<"colrec="<<colrec.x<<","<<colrec.y<<","<<colrec.width<<","<<colrec.height<<std::endl;
-
+    
 }
 //============================================
 void Hero::killplayer()
