@@ -23,7 +23,11 @@ void scoreboard::drawscreenframe()
 {
     //  Routine to draw the background and the titles/score and graph
 
-    DrawTexture(media::sink,0,0,WHITE);
+    //DrawTexture(media::sink,0,0,WHITE);
+    Rectangle source={0,0,media::sink.width,media::sink.height};
+    Rectangle dest={0,0,GetMonitorWidth(0),GetMonitorHeight(0)};
+
+    DrawTexturePro(media::sink,source,dest,{0,0},0,WHITE);
 
     DrawRectangleGradientV(0,0,GetScreenWidth(),250,GREEN,DARKGREEN);
     DrawTextEx(titlefont,"INFESTATION",{1020,45},150,5,Color{0,0,0,128});  //blackshaddow

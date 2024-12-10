@@ -27,7 +27,6 @@ void ATC::collide(swarm& herd,Hero& player)    //pass the swarm by reference and
             ,60*herd.roaches[i].getbugscale(),player.getplayerrect()))
             {
                 player.killplayer();
-                DrawCircle(900,900,300,BLUE);
             }
             
             

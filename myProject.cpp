@@ -16,6 +16,8 @@ bool collchcecker(int, int); //prototype
 
 int main()
 {
+    // Set the configuration flag to create an undecorated window
+    SetConfigFlags(FLAG_WINDOW_UNDECORATED);
     InitWindow(GetMonitorWidth(0),GetMonitorHeight(0),"TEST WINDOW");
     SetTargetFPS(60);
     InitAudioDevice();
