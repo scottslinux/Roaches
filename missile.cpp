@@ -1,6 +1,7 @@
 #include "missile.h"
 #include "swarm.h"
 #include "media.h"
+#include "ATC.h"
 
 
 
@@ -81,7 +82,7 @@ void missile::fireshot(Vector2 pos, int direction,swarm& herd)
         
         fireflag=false;
 
-        //ATC::collide(herd,startshot,endshot);   //check for a hit on the roaches
+        ATC::collide(herd,startshot,endshot);   //check for a hit on the roaches
 
         
         

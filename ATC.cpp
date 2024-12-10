@@ -45,6 +45,7 @@ void ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)
                 60*herd.roaches[i].getbugscale(),startpt,endpt))
                 {
                     herd.roaches[i].killroach();    //simple method sets alive to 0
+                    
 
 
                 }

@@ -111,6 +111,7 @@ void insect::killroach()
 {
     alive=0;
 
+
     return;
 }
 //=====================================================
@@ -138,9 +139,9 @@ void insect::drawroach()
     float radius=40*scale;
     //DrawRing(pos,radius,radius+10,0,360,36,BLUE);
 
-    //if (alive==0)  //if the roach is dead make a mark--prelim red circle
-       // DrawRing(pos,radius,radius+10,0,360,36,RED);
-        
+    if (alive==0)  //if the roach is dead make a mark--prelim red circle
+       DrawRing(pos,radius,radius+10,0,360,36,RED);
+  
 
 
     
