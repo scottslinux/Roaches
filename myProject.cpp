@@ -6,6 +6,7 @@
 #include "missile.h"
 #include "media.h"
 #include "scoreboard.h"
+#include "ATC.h"
 
 
 void collisionChecker(swarm herd, Hero man);    //forward prototype
@@ -15,7 +16,7 @@ bool collchcecker(int, int); //prototype
 
 int main()
 {
-    InitWindow(3500,2000,"TEST WINDOW");
+    InitWindow(GetMonitorWidth(0),GetMonitorHeight(0),"TEST WINDOW");
     SetTargetFPS(60);
     InitAudioDevice();
 
@@ -49,7 +50,7 @@ int main()
 
 
             shooter.fireshot(guy.getplayerpos(),guy.getplayerdirection(),myswarm);
-
+            ATC::collide(myswarm,guy);
 
             
             
