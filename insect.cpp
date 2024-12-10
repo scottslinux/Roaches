@@ -9,23 +9,24 @@
 //                      constructor
 insect::insect()
 {
-    spritedimension=128;
 
-    
- 
     pos.x=GetRandomValue(1200,1500);  //generate random x,y position
     pos.y=GetRandomValue(900,900);
 
-    while(abs(vel.x)<100)           //prevents low or zero velocities
-        vel.x=GetRandomValue(-300,300);
-    while(abs(vel.y)<100)
-        vel.y=GetRandomValue(-300,300);
-    
+    // Site of the great uninitialized variable debacle
+    // New procedure assures that there will be a valid velocity number
+    vel.x=GetRandomValue(100,350);  
+    vel.y=GetRandomValue(100,350);
+    if ((GetRandomValue(0,100)>50)) vel.x*=-1;
+    if ((GetRandomValue(0,100)>50)) vel.y*=-1;
+
 
     rotation=0;
     scale=GetRandomValue(1,3)*0.5f;   //random size
     spritecntr.x=(spritedimension/2*scale);
     spritecntr.y=(spritedimension/2*scale);
+    spritedimension=128;
+
 
     //initial collision rect on creation
     colrec={pos.x-128/2*scale,pos.y=128/2*scale,128*scale,128*scale};
@@ -38,8 +39,7 @@ insect::insect()
     vitality=Alive;
     alive=1;
     deathclock=2.0;   //timer for countdown during death timing.
-    testvar=1.0;
-    myvar=12110.98;
+    colliding=false;
 
     
 

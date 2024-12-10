@@ -6,8 +6,14 @@
 swarm::swarm(int num)
 {
     
-    roaches.resize(num);    //create the roaches
+    //roaches.resize(num);    //create the roaches
     roachesinswarm=num;
+
+    for (int i = 0; i < num; ++i) 
+            roaches.emplace_back();
+
+    
+        
 
 
     
@@ -24,13 +30,14 @@ void swarm::displayswarm()
 
     }
 
-
     return;
 }
 
 //=======================================
 bool check4collision()
 {
+
+    
     
 
 

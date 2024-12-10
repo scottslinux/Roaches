@@ -21,10 +21,15 @@ scoreboard::scoreboard()    //constructor
 //===================================================
 void scoreboard::drawscreenframe()
 {
+    //  Routine to draw the background and the titles/score and graph
 
+<<<<<<< HEAD
     Rectangle source={0,0,media::sink.width,media::sink.height};       //sink is a static variable from media class
     Rectangle dest={0,0,GetMonitorWidth(0),GetMonitorHeight(0)};
     DrawTexturePro(media::sink,source,dest,(Vector2){0,0},0,WHITE);
+=======
+    DrawTexture(media::sink,0,0,WHITE);
+>>>>>>> bf4eed2 (Nailed the Memory Error)
 
     DrawRectangleGradientV(0,0,GetScreenWidth(),250,GREEN,DARKGREEN);
     DrawTextEx(titlefont,"INFESTATION",{1020,45},150,5,Color{0,0,0,128});  //blackshaddow

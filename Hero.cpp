@@ -175,6 +175,8 @@ if (!colliding)
 Rectangle Hero::getplayerrect()
 {
     return colrec;
+    system("clear");
+    std::cout<<"colrec="<<colrec.x<<","<<colrec.y<<","<<colrec.width<<","<<colrec.height<<std::endl;
 
 }
 //============================================

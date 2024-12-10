@@ -6,32 +6,33 @@
 
 
 enum life {Dead,Alive,Dying};   //GLOBAL life flag 0-2
-constexpr float SPRITESQRSIZE=128.0F;
 
 class insect
 {
 
 private:
     
-    int spritedimension;
+    int spritedimension{128};
 
     Vector2 pos;        //x,y coordinates
     Vector2 vel;        //x,y vel
-    float rotation;     //sprite rotation
-    float scale;
-    double last_time;   //time stamp for last movement
-    int frame;          //current frame of animation
-    double frametimer;
-    Vector2 spritecntr;
+    float rotation{0.0f};     //sprite rotation
+    float scale{1.0f};
+    double last_time{0};   //time stamp for last movement
+    int frame{0};          //current frame of animation
+    double frametimer{0};
+    Vector2 spritecntr{0};
 
-    life vitality;      //create variable of type life
-    bool colliding;
-    bool alive;
-    double deathclock;
+    life vitality{Alive};      //create variable of type life
+    bool colliding{false};
+    bool alive{true};
+    double deathclock{0};
 
 
-    Rectangle colrec;   //this sprites collision rectangle
+    Rectangle colrec{0.0f, 0.0f, 0.0f, 0.0f};  // Default rectangle
    public:
+   const float SPRITESQRSIZE=128.0F;
+
  
 
     insect();     //constructor
@@ -43,9 +44,7 @@ private:
     void adjustroachsize();
     Vector2 getbugpos();
     float getbugscale();
-    float testvar;
-    double myvar;
-
+    
 
 };
 
