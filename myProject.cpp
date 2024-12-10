@@ -5,23 +5,14 @@
 #include "Hero.h"
 #include "missile.h"
 #include "media.h"
-<<<<<<< HEAD
-#include "scoreboard.h""
-=======
 #include "scoreboard.h"
->>>>>>> bf4eed2 (Nailed the Memory Error)
 
 
 void collisionChecker(swarm herd, Hero man);    //forward prototype
 
-<<<<<<< HEAD
-
-//---------------------------------------------------------
-=======
 bool collchcecker(int, int); //prototype
 
 
->>>>>>> bf4eed2 (Nailed the Memory Error)
 int main()
 {
     InitWindow(3500,2000,"TEST WINDOW");
@@ -33,11 +24,7 @@ int main()
     swarm myswarm(10);
     Hero guy;
     missile shooter;
-<<<<<<< HEAD
-    scoreboard screentitles;
-=======
     scoreboard titlesandscores;
->>>>>>> bf4eed2 (Nailed the Memory Error)
 
     media::loadMediaFiles();        // Load up all of the sights and sounds!
 
@@ -53,14 +40,8 @@ int main()
 
         BeginDrawing();
 
-<<<<<<< HEAD
-            
-            screentitles.drawscreenframe();
-
-=======
 
             titlesandscores.drawscreenframe();
->>>>>>> bf4eed2 (Nailed the Memory Error)
             myswarm.displayswarm();
 
             guy.updateplayer();
@@ -93,19 +74,3 @@ int main()
     return 0;
     
 }
-<<<<<<< HEAD
-//====================================================================================
-void collisionChecker(swarm herd, Hero man)
-{
-
-    
-
-
-
-
-    return;
-
-}
-=======
-
->>>>>>> bf4eed2 (Nailed the Memory Error)
