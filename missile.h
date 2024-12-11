@@ -20,7 +20,6 @@ struct shot
 
     Rectangle colrect;
 
-
 };
 //==========================================
 class missile
@@ -49,6 +48,9 @@ public:
     void killroach();
     static int getremainlaser();
     bool fireflag;
+    double laserdelay;
+    double firetime;
+
 
     void playlasersound();
     Vector2 targetVector(swarm& localherd, Vector2 start, Vector2 end,int dir);

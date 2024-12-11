@@ -20,6 +20,7 @@ missile::missile()  //constructor defiition
     rocket.last_time=0;
 
     laserpower=250; //starting laser power
+    laserdelay=2.0;
 
     //check to see
     
@@ -30,7 +31,7 @@ missile::missile()  //constructor defiition
 //   get a shot off passing hero pos and direction
 void missile::fireshot(Vector2 pos, int direction,swarm& herd)
 {
-    if(GetGamepadAxisMovement(0,5)>0 && laserpower>0)
+    if(GetGamepadAxisMovement(0,5)>0 && laserpower>0 && laserdelay>0)
     {
 
         missile::playlasersound();
