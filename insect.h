@@ -21,7 +21,7 @@ private:
     double last_time{0};   //time stamp for last movement
     int frame{0};          //current frame of animation
     double frametimer{0};
-    Vector2 spritecntr{0};
+    Vector2 spritecntr{0,0};
 
     life vitality{Alive};      //create variable of type life
     bool colliding{false};

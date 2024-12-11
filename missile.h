@@ -51,6 +51,7 @@ public:
     bool fireflag;
 
     void playlasersound();
+    Vector2 targetVector(swarm& localherd, Vector2 start, Vector2 end,int dir);
     
 
 

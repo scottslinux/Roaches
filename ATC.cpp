@@ -17,7 +17,7 @@ ATC::ATC()      //constructor
 
 }
 //***********************************************************************************
-void ATC::collide(swarm& herd,Hero& player)    //pass the swarm by reference and the player.
+bool ATC::collide(swarm& herd,Hero& player)    //pass the swarm by reference and the player.
 {
     
     //check if roach contacts and kills player
@@ -27,15 +27,16 @@ void ATC::collide(swarm& herd,Hero& player)    //pass the swarm by reference and
             ,60*herd.roaches[i].getbugscale(),player.getplayerrect()))
             {
                 player.killplayer();
+                return true;
             }
             
             
     }
 
-    return;
+    return false;
 }
 //***********************************************************************************
-void ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)    
+bool ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)    
 {
         ///roach swarm and start/end of laser line
         for(int i=0;i<herd.roachesinswarm;i++)
@@ -45,7 +46,7 @@ void ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)
                 {
                     herd.roaches[i].killroach();    //simple method sets alive to 0
                     
-
+                    return true;
 
                 }
 
@@ -53,6 +54,6 @@ void ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)
 
         }
 
-
+    return false;
 
 }

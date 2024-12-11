@@ -18,8 +18,8 @@ public:
 
     ATC();  // constructor....may not use as its all static
 
-    static void collide(swarm& herd,Hero& player);    //pass the swarm by reference
-    static void collide(swarm& herd,Vector2,Vector2);        //roach swarm and start/end of laser line
+    static bool collide(swarm& herd,Hero& player);    //pass the swarm by reference
+    static bool collide(swarm& herd,Vector2,Vector2);        //roach swarm and start/end of laser line
 
 
 

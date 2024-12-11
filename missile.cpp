@@ -4,7 +4,7 @@
 #include "ATC.h"
 
 
-
+int missile::laserpower={0};
 //==============================================//
 missile::missile()  //constructor defiition
 {
@@ -73,6 +73,7 @@ void missile::fireshot(Vector2 pos, int direction,swarm& herd)
         Color lasercolor2={255,138,253,50};
 
         
+        endshot=missile::targetVector(herd,startshot,endshot,direction);
 
         DrawLineEx(startshot,endshot,80,lasercolor2);
         DrawLineEx(startshot,endshot,GetRandomValue(10,60),lasercolor);
@@ -105,3 +106,34 @@ void missile::playlasersound()
 
 }
 
+//================================================
+//  try again to find the distance to the first roch
+
+Vector2 missile::targetVector(swarm& localherd, Vector2 start, Vector2 end,int dir)
+{
+    float segsize=100.0f;
+    float anglerads=35*(M_PI/180.0);
+
+    Vector2 A=start;
+    Vector2 B;
+
+    B.x=A.x+(segsize*dir);
+    B.y=A.y-(tan(anglerads)*segsize);
+
+    for(int i=0;i<10;i++)
+    {
+        B.x=A.x+(segsize*i*dir);
+        B.y=A.y-(tan(anglerads)*(segsize*i));
+
+        if (ATC::collide(localherd,start,B))
+            return(B);
+
+
+
+    }
+
+    return B;
+
+
+
+}
