@@ -20,7 +20,8 @@ missile::missile()  //constructor defiition
     rocket.last_time=0;
 
     laserpower=250; //starting laser power
-    laserdelay=2.0;
+    laserdelay=0.25; //delay between blasts
+    laserduration=0.1; //duration of laser pulse
 
     //check to see
     
@@ -29,10 +30,11 @@ missile::missile()  //constructor defiition
 }
 //==============================================//
 //   get a shot off passing hero pos and direction
-void missile::fireshot(Vector2 pos, int direction,swarm& herd)
+void missile::fireshot(Vector2 pos, int direction,swarm& herd,double dt)
 {
-    if(GetGamepadAxisMovement(0,5)>0 && laserpower>0 && laserdelay>0)
+    if(GetGamepadAxisMovement(0,5)>0 && laserpower>0 && laserduration>0)
     {
+        laserduration-=dt;     //decrement the laser blast time;
 
         missile::playlasersound();
 
@@ -89,6 +91,14 @@ void missile::fireshot(Vector2 pos, int direction,swarm& herd)
         
         
     }
+    if (laserduration<=0)   //when the shot is finished..time to pause between firing
+        laserdelay-=dt;     //start pausing
+    
+    if (laserdelay<=0)
+        {
+            laserduration=0.1;  //reset the ability to fire
+            laserdelay=0.25;     //reset for the next delay
+        }
 
 
 }
@@ -121,7 +131,7 @@ Vector2 missile::targetVector(swarm& localherd, Vector2 start, Vector2 end,int d
     B.x=A.x+(segsize*dir);
     B.y=A.y-(tan(anglerads)*segsize);
 
-    for(int i=0;i<10;i++)
+    for(int i=0;i<20;i++)
     {
         B.x=A.x+(segsize*i*dir);
         B.y=A.y-(tan(anglerads)*(segsize*i));

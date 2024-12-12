@@ -42,7 +42,7 @@ public:
 
     missile(/* args */);    //constructor
     //fire a missile and provide the player pos and vel to determine pos
-    void fireshot(Vector2 pos, int direction,swarm& herd); 
+    void fireshot(Vector2 pos, int direction,swarm& herd,double dt); 
     void updatemissile();
     void drawmissile();
     void killroach();
@@ -50,6 +50,7 @@ public:
     bool fireflag;
     double laserdelay;
     double firetime;
+    double laserduration;
 
 
     void playlasersound();
