@@ -15,8 +15,8 @@ insect::insect()
 
     // Site of the great uninitialized variable debacle
     // New procedure assures that there will be a valid velocity number
-    vel.x=GetRandomValue(100,350);  
-    vel.y=GetRandomValue(100,350);
+    vel.x=GetRandomValue(100,500);  
+    vel.y=GetRandomValue(100,500);
     if ((GetRandomValue(0,100)>50)) vel.x*=-1;
     if ((GetRandomValue(0,100)>50)) vel.y*=-1;
 
@@ -120,33 +120,42 @@ void insect::killroach()
 
 void insect::drawroach()
 {
-    //draws an individual roach and then again for the shadow if the roach is alive
-
-    if(vel.x !=0)   //velocity is set to 0 at death. so if not dead
+    
+    //⁡⁣⁢⁣⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗮𝗹𝗶𝘃𝗲 𝘃𝗲𝗹𝗼𝗰𝗶𝘁𝘆 𝗶𝘀 𝗻𝗼𝘁 𝘇𝗲𝗿𝗼⁡- Routine position update
+    if(vel.x !=0)   
     {
+        //draws an individual roach and then again for the shadow if the roach is alive
+
         Rectangle source={(128.0f*frame),0,128.0f,128.0f};
         Rectangle dest={pos.x,pos.y,128*scale,128*scale};
+
         //shadow rectangle is offset from the original
         Rectangle dest2={pos.x+15,pos.y+15,128*scale,128*scale}; //shadow position
-        Color shadow={0,0,0,128};  //128 of 255 in alpha channel
+        Color shadow={0,0,0,128};  //128 of 255 in alpha channel-transparent
 
-        //calcualte collision rect position and size
+        // deprecated...now using circles for collisions--may eliminate
         colrec={pos.x-128/2*scale,pos.y-128/2*scale,128*scale,128*scale};
 
         //draw the shadow first and then roach on top of it
         DrawTexturePro(media::bug,source,dest2,spritecntr,rotation,shadow);
         DrawTexturePro(media::bug,source,dest,spritecntr,rotation,WHITE);
 
-        //Create a circle around each roach for collision detection
-        //vary diameter according to the scale of the roach
+        
+    }
+    // ⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗗𝗲𝗮𝗱- 𝗩𝗲𝗹𝗼𝗰𝗶𝘁𝘆 𝗶𝘀 𝗭𝗲𝗿𝗼 -𝗗𝗲𝗮𝘁𝗵𝗰𝗹𝗼𝗰𝗸>𝟬 𝗔𝗻𝗶𝗺𝗮𝘁𝗶𝗼𝗻 𝗢𝗻𝗴𝗼𝗶𝗻𝗴⁡
+    // visit the animation routine. Tick down the deathclock
+    else if(vel.x=0 && deathclock>0)
+    {
 
-        float radius=40*scale;
-        //DrawRing(pos,radius,radius+10,0,360,36,BLUE);
+        //DrawTexturePro
 
-        //if (alive==0)  //if the roach is dead make a mark--prelim red circle
-        //  DrawRing(pos,radius,radius+10,0,360,36,RED);
+
+
+
+
     }
 
+    // ⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗗𝗲𝗮𝗱- 𝗩𝗲𝗹𝗼𝗰𝗶𝘁𝘆 𝗶𝘀 𝗭𝗲𝗿𝗼 - 𝗗𝗲𝗮𝘁𝗵𝗰𝗹𝗼𝗰𝗸 𝗭𝗲𝗿𝗼- 𝘋𝘳𝘢𝘸 𝘴𝘵𝘢𝘵𝘪𝘰𝘯𝘢𝘳𝘺 𝘴𝘱𝘭𝘢𝘵⁡
 
     
     return;

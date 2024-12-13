@@ -27,7 +27,7 @@ int main()
 
 
 
-    swarm myswarm(10);
+    swarm myswarm(20);
     Hero guy;
     missile shooter;
     scoreboard titlesandscores;
