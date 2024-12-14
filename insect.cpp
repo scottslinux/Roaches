@@ -39,7 +39,7 @@ insect::insect()
     frametimer=0.0;
     vitality=Alive;
     alive=1;
-    deathclock=2.0;     //timer for total countdown during death timing. 2 seconds
+    deathclock=0.2;     //timer for total countdown during death timing. 2 seconds
     colliding=false;
     frametimedeath=0;
     frame2=0;           //frame counter for death sequence
@@ -184,8 +184,12 @@ void insect::drawroach()   //pass delta_time
     }
 
     // ⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗗𝗲𝗮𝗱- 𝗩𝗲𝗹𝗼𝗰𝗶𝘁𝘆 𝗶𝘀 𝗭𝗲𝗿𝗼 - 𝗗𝗲𝗮𝘁𝗵𝗰𝗹𝗼𝗰𝗸 𝗭𝗲𝗿𝗼- 𝘋𝘳𝘢𝘸 𝘴𝘵𝘢𝘵𝘪𝘰𝘯𝘢𝘳𝘺 𝘴𝘱𝘭𝘢𝘵⁡
-
-    
+    else
+    {
+        Rectangle source={540*frame2,0,540,590};
+        Rectangle dest={pos.x,pos.y,255*scale,255*scale};
+        DrawTexturePro(media::splat,source,dest,{0,0},0.0f,WHITE);
+    }
     return;
 }
 //=====================================================
