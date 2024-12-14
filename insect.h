@@ -16,21 +16,27 @@ private:
 
     Vector2 pos;        //x,y coordinates
     Vector2 vel;        //x,y vel
-    float rotation{0.0f};     //sprite rotation
-    float scale{1.0f};
-    double last_time{0};   //time stamp for last movement
-    int frame{0};          //current frame of animation
-    double frametimer{0};
     Vector2 spritecntr{0,0};
 
-    life vitality{Alive};      //create variable of type life
-    bool colliding{false};
-    bool alive{true};
+        double frametimer{0};
+    double last_time{0};   //time stamp for last movement
     double deathclock{0};
+    double frametimedeath{0};
     static double deltaT;
     static double currtime;
-    double frametimedeath{0};
+
+
+
+    float rotation{0.0f};     //sprite rotation
+    float scale{1.0f};
+
+    int frame{0};          //current frame of animation
     int frame2{0};
+
+    bool colliding{false};
+    bool alive{true};
+  
+    life vitality{Alive};      //create variable of type life
 
 
     Rectangle colrec{0.0f, 0.0f, 0.0f, 0.0f};  // Default rectangle

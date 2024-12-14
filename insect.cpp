@@ -39,7 +39,7 @@ insect::insect()
     frametimer=0.0;
     vitality=Alive;
     alive=1;
-    deathclock=0.2;     //timer for total countdown during death timing. 2 seconds
+    deathclock=0.3;     //timer for total countdown during death timing. 2 seconds
     colliding=false;
     frametimedeath=0;
     frame2=0;           //frame counter for death sequence
@@ -119,6 +119,9 @@ void insect::killroach()
     currtime=GetTime();
     frame=0;            //use frame to index the death animation
 
+    while(!IsSoundPlaying(media::squish))
+        PlaySound(media::squish);
+
     return;
 }
 //=====================================================
@@ -152,7 +155,7 @@ void insect::drawroach()   //pass delta_time
     // visit the animation routine. Tick down the deathclock
     else if(vitality==Dead && deathclock>0)
     {
-        float index=2.0f/6.0f;  //time to spend on each frame
+        float index=0.3f/5.0f;  //time to spend on each frame
 
         deltaT=GetTime()-currtime;
         deathclock=deathclock-deltaT; //decrement the animation time limit
@@ -167,15 +170,9 @@ void insect::drawroach()   //pass delta_time
 
         }
 
-        //do something
-
-        
-
-
-        
-        
+       
         Rectangle source={540*frame2,0,540,590};
-        Rectangle dest={pos.x,pos.y,255*scale,255*scale};
+        Rectangle dest={pos.x,pos.y,155*scale,155*scale};
 
         DrawTexturePro(media::splat,source,dest,{0,0},0.0f,WHITE);
 
@@ -187,8 +184,8 @@ void insect::drawroach()   //pass delta_time
     else
     {
         Rectangle source={540*frame2,0,540,590};
-        Rectangle dest={pos.x,pos.y,255*scale,255*scale};
-        DrawTexturePro(media::splat,source,dest,{0,0},0.0f,WHITE);
+        Rectangle dest={pos.x,pos.y,155*scale,155*scale};
+        DrawTexturePro(media::splat,source,dest,{0,0},0.0f,Color{0,255,0,100});
     }
     return;
 }

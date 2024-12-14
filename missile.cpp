@@ -20,8 +20,8 @@ missile::missile()  //constructor defiition
     rocket.last_time=0;
 
     laserpower=250; //starting laser power
-    laserdelay=0.25; //delay between blasts
-    laserduration=0.1; //duration of laser pulse
+    laserdelay=0.05; //delay between blasts
+    laserduration=0.2; //duration of laser pulse
 
     //check to see
     
@@ -96,8 +96,8 @@ void missile::fireshot(Vector2 pos, int direction,swarm& herd,double dt)
     
     if (laserdelay<=0)
         {
-            laserduration=0.02;  //reset the ability to fire
-            laserdelay=0.8;     //reset for the next delay
+            laserduration=0.1;  //reset the ability to fire
+            laserdelay=0.2;     //reset for the next delay
         }
 
 
