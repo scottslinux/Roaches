@@ -38,7 +38,7 @@ insect::insect()
     frame=0;                //initial frame
     frametimer=0.0;
     vitality=Alive;
-    alive=1;
+    alive=true;
     deathclock=0.3;     //timer for total countdown during death timing. 2 seconds
     colliding=false;
     frametimedeath=0;
@@ -113,6 +113,7 @@ void insect::updateroachpos()
 
 void insect::killroach()
 {
+    alive=false;
     vitality=Dead;      //enumeration!
     vel={0,0};          //hold the roach still
     //pos={0,0};          //since collision uses the position to form a circle--zero it at death
@@ -204,7 +205,13 @@ float insect::getbugscale()
 
 
 //=====================================================
+int insect::isAlive()
+{
+    if (Alive) return 1;
+    else 
+        return 0;
 
+}
 //=====================================================
 //      utility for use with calculating roach rotation
 //      from direction. (atan2 gives result in radians)

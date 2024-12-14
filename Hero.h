@@ -20,6 +20,7 @@ private:
 
     double frametimer;
     double delta_t;
+    double last_time;
 
     float rotation;     //sprite rotation
     float scale;

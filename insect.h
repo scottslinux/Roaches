@@ -54,6 +54,7 @@ private:
     void adjustroachsize();
     Vector2 getbugpos();
     float getbugscale();
+    int isAlive();
     
 
 };

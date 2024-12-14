@@ -21,11 +21,13 @@ bool ATC::collide(swarm& herd,Hero& player)    //pass the swarm by reference and
 {
     
     //check if roach contacts and kills player
-    for(int i=0;i<herd.roachesinswarm;i++)
+    for(int i=0;i<10;i++)
     {
         if(CheckCollisionCircleRec({herd.roaches[i].getbugpos()}
             ,60*herd.roaches[i].getbugscale(),player.getplayerrect()))
             {
+
+                std::cout<<"Roach# "<<i<<"   Dead Roach Check...."<<herd.roaches[i].isAlive()<<std::endl;
                 player.killplayer();
                 return true;
             }
