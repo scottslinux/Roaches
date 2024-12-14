@@ -207,7 +207,7 @@ float insect::getbugscale()
 //=====================================================
 int insect::isAlive()
 {
-    if (Alive) return 1;
+    if (alive) return 1;
     else 
         return 0;
 

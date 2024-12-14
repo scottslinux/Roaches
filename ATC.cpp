@@ -26,10 +26,14 @@ bool ATC::collide(swarm& herd,Hero& player)    //pass the swarm by reference and
         if(CheckCollisionCircleRec({herd.roaches[i].getbugpos()}
             ,60*herd.roaches[i].getbugscale(),player.getplayerrect()))
             {
+                if (herd.roaches[i].isAlive())
+                {
 
-                std::cout<<"Roach# "<<i<<"   Dead Roach Check...."<<herd.roaches[i].isAlive()<<std::endl;
                 player.killplayer();
-                return true;
+                std::cout<<"Collision with roach # "<<i<<std::endl;
+                std::cout<<"isAlive() returns: "<<herd.roaches[i].isAlive()<<std::endl;
+                return true; 
+                }
             }
             
             
@@ -46,10 +50,12 @@ bool ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)
             if(CheckCollisionCircleLine(herd.roaches[i].getbugpos(),
                 60*herd.roaches[i].getbugscale(),startpt,endpt))
                 {
+                  if (herd.roaches[i].isAlive())
+                  {
                     herd.roaches[i].killroach();    //simple method sets alive to 0
                     
                     return true;
-
+                  }
                 }
 
 

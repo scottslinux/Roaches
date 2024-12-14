@@ -18,7 +18,7 @@ private:
     Vector2 vel;        //x,y vel
     Vector2 spritecntr{0,0};
 
-        double frametimer{0};
+    double frametimer{0};
     double last_time{0};   //time stamp for last movement
     double deathclock{0};
     double frametimedeath{0};
@@ -35,12 +35,14 @@ private:
 
     bool colliding{false};
     bool alive{true};
-  
+
+
+public:
+
     life vitality{Alive};      //create variable of type life
 
 
     Rectangle colrec{0.0f, 0.0f, 0.0f, 0.0f};  // Default rectangle
-   public:
    const float SPRITESQRSIZE=128.0F;
 
  
