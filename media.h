@@ -11,6 +11,7 @@ class media
 public:
 
     static Texture2D bug;
+    static Texture2D splat;
     static Texture2D heroimage;
     static Texture2D sink;
 

@@ -22,12 +22,12 @@ int main()
     SetTargetFPS(60);
     InitAudioDevice();
 
-    double start_time={0};  //INITIALIZE THE TIME VARIABLES
-    double delta_time={0};
+    double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
+    double delta_time=0;
 
 
 
-    swarm myswarm(20);
+    swarm myswarm(10);
     Hero guy;
     missile shooter;
     scoreboard titlesandscores;

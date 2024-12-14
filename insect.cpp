@@ -4,7 +4,8 @@
 #include "media.h"
 
 
-
+double insect::currtime{0}; //reserve space static variables
+double insect::deltaT{0};
 //=====================================================
 //                      constructor
 insect::insect()
@@ -38,8 +39,10 @@ insect::insect()
     frametimer=0.0;
     vitality=Alive;
     alive=1;
-    deathclock=2.0;   //timer for countdown during death timing.
+    deathclock=2.0;     //timer for total countdown during death timing. 2 seconds
     colliding=false;
+    frametimedeath=0;
+    frame2=0;           //frame counter for death sequence
 
     
 
@@ -110,19 +113,22 @@ void insect::updateroachpos()
 
 void insect::killroach()
 {
-    alive=0;
+    vitality=Dead;      //enumeration!
     vel={0,0};          //hold the roach still
-    pos={0,0};          //since collision uses the position to form a circle--zero it at death
+    //pos={0,0};          //since collision uses the position to form a circle--zero it at death
+    currtime=GetTime();
+    frame=0;            //use frame to index the death animation
 
     return;
 }
 //=====================================================
 
-void insect::drawroach()
+void insect::drawroach()   //pass delta_time
 {
+    int framesperclock=6;
     
-    //⁡⁣⁢⁣⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗮𝗹𝗶𝘃𝗲 𝘃𝗲𝗹𝗼𝗰𝗶𝘁𝘆 𝗶𝘀 𝗻𝗼𝘁 𝘇𝗲𝗿𝗼⁡- Routine position update
-    if(vel.x !=0)   
+    //⁡⁣⁢⁣⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗮𝗹𝗶𝘃𝗲 ⁡- Routine position update
+    if(vitality==Alive)   //type enum life
     {
         //draws an individual roach and then again for the shadow if the roach is alive
 
@@ -142,17 +148,39 @@ void insect::drawroach()
 
         
     }
-    // ⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗗𝗲𝗮𝗱- 𝗩𝗲𝗹𝗼𝗰𝗶𝘁𝘆 𝗶𝘀 𝗭𝗲𝗿𝗼 -𝗗𝗲𝗮𝘁𝗵𝗰𝗹𝗼𝗰𝗸>𝟬 𝗔𝗻𝗶𝗺𝗮𝘁𝗶𝗼𝗻 𝗢𝗻𝗴𝗼𝗶𝗻𝗴⁡
+    // ⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗗𝗲𝗮𝗱--𝗗𝗲𝗮𝘁𝗵𝗰𝗹𝗼𝗰𝗸>𝟬 𝗔𝗻𝗶𝗺𝗮𝘁𝗶𝗼𝗻 𝗢𝗻𝗴𝗼𝗶𝗻𝗴⁡
     // visit the animation routine. Tick down the deathclock
-    else if(vel.x=0 && deathclock>0)
+    else if(vitality==Dead && deathclock>0)
     {
+        float index=2.0f/6.0f;  //time to spend on each frame
 
-        //DrawTexturePro
+        deltaT=GetTime()-currtime;
+        deathclock=deathclock-deltaT; //decrement the animation time limit
+        frametimedeath+=deltaT; //increment the frame timer
+
+        if(frametimedeath>=index)
+        {
+
+            frame2++;    //increment to next animation frame
+            frametimedeath=0;   //this counts the time for each splat animation frame
 
 
+        }
+
+        //do something
+
+        
 
 
+        
+        
+        Rectangle source={540*frame2,0,540,590};
+        Rectangle dest={pos.x,pos.y,255*scale,255*scale};
 
+        DrawTexturePro(media::splat,source,dest,{0,0},0.0f,WHITE);
+
+        currtime=GetTime();
+        //reset the currtime as we leave the loop
     }
 
     // ⁡⁣⁢⁣𝗧𝗵𝗲 𝗥𝗼𝗮𝗰𝗵 𝗶𝘀 𝗗𝗲𝗮𝗱- 𝗩𝗲𝗹𝗼𝗰𝗶𝘁𝘆 𝗶𝘀 𝗭𝗲𝗿𝗼 - 𝗗𝗲𝗮𝘁𝗵𝗰𝗹𝗼𝗰𝗸 𝗭𝗲𝗿𝗼- 𝘋𝘳𝘢𝘸 𝘴𝘵𝘢𝘵𝘪𝘰𝘯𝘢𝘳𝘺 𝘴𝘱𝘭𝘢𝘵⁡

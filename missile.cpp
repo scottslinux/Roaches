@@ -96,8 +96,8 @@ void missile::fireshot(Vector2 pos, int direction,swarm& herd,double dt)
     
     if (laserdelay<=0)
         {
-            laserduration=0.1;  //reset the ability to fire
-            laserdelay=0.25;     //reset for the next delay
+            laserduration=0.02;  //reset the ability to fire
+            laserdelay=0.8;     //reset for the next delay
         }
 
 

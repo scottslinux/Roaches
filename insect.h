@@ -27,6 +27,10 @@ private:
     bool colliding{false};
     bool alive{true};
     double deathclock{0};
+    static double deltaT;
+    static double currtime;
+    double frametimedeath{0};
+    int frame2{0};
 
 
     Rectangle colrec{0.0f, 0.0f, 0.0f, 0.0f};  // Default rectangle
