@@ -14,20 +14,24 @@ private:
 
     Vector2 pos;
     Vector2 vel;
-    bool directionflag;
     Vector2 origin;
-    float rotation;     //sprite rotation
-    float scale;
-    double last_time;   //time stamp for last movement
-    int frame;          //current frame of animation
-    double frametimer;
-    int spritesqr;
-    double delta_t;
-    int direction;
-
-    int vitality;      //create variable of type life
 
     Rectangle colrec;   //this sprites collision rectangle
+
+    double frametimer;
+    double delta_t;
+
+    float rotation;     //sprite rotation
+    float scale;
+
+    int frame;          //current frame of animation
+    int spritesqr;
+    int direction;
+    int vitality;      //create variable of type life
+
+    bool directionflag;
+    
+    
 
 
 public:
