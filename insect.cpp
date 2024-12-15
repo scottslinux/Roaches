@@ -32,8 +32,6 @@ insect::insect()
     //initial collision rect on creation
     colrec={pos.x-128/2*scale,pos.y=128/2*scale,128*scale,128*scale};
 
-
-
     last_time=GetTime();    //set the time stamp to birth
     frame=0;                //initial frame
     frametimer=0.0;
@@ -43,8 +41,9 @@ insect::insect()
     colliding=false;
     frametimedeath=0;
     frame2=0;           //frame counter for death sequence
-
     
+    
+
 
     
 

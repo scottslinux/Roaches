@@ -1,8 +1,8 @@
 #pragma once
-
 #include<iostream>
 #include<cmath>
 #include "raylib.h"
+#include <vector>
 
 
 enum life {Dead,Alive,Dying};   //GLOBAL life flag 0-2
@@ -12,7 +12,6 @@ class insect
 
 private:
     
-    int spritedimension{128};
 
     Vector2 pos;        //x,y coordinates
     Vector2 vel;        //x,y vel
@@ -32,10 +31,12 @@ private:
 
     int frame{0};          //current frame of animation
     int frame2{0};
+    int spritedimension{128};
 
     bool colliding{false};
     bool alive{true};
 
+    
 
 public:
 

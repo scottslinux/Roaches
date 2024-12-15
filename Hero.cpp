@@ -33,8 +33,8 @@ Hero::Hero(){
     delta_t=0;
     direction=1;
 
-    vitality=1; //1-alive,2-dying,3-dead
-
+    alive=1; //0-dead, 1-alive, 2-dying
+    
     colrec={pos.x,pos.y,512*scale,512*scale};  //***dummy values */
     colliding=false;
     collisioneventcountdown=0;
@@ -47,7 +47,7 @@ Hero::Hero(){
 //=============================================
 void Hero::updateplayer()
 {
-    controllerinput();
+    controllerinput();  //in controllerinput(): check for death. Stop moving
 
     delta_t=GetTime()-last_time;
     frametimer+=delta_t;
@@ -88,13 +88,20 @@ void Hero::updateplayer()
 //=============================================
 void Hero::drawplayer()
 {
+    if(alive==2 || alive==0)
+    {
+        playerdying();  // if the player is dying go to the death animation routine
+        return;
+    }
+
+/*
     int death;
     if(colliding)
         death=512;
             else   
                 death=0;
-
-    Rectangle source={512*frame,0+death,direction*512,512};
+*/
+    Rectangle source={512*frame,0,direction*512,512};
     Rectangle destin={pos.x,pos.y,512*scale,512*scale};
     
 
@@ -107,6 +114,11 @@ void Hero::drawplayer()
 //===========================================
 void Hero::controllerinput()
 {
+    if (colliding)      //if dead stop moving
+        {
+            vel={0,0};
+            return;
+        }
     std::stringstream ss;
     std::stringstream direc;
 
@@ -147,9 +159,18 @@ Rectangle Hero::getplayerrect()
 //============================================
 void Hero::killplayer()
 {
-    vitality=3; 
+    if(alive==2 || alive==0)    //if death sequence already underway
+        return;
+
+
+    alive=2; 
     collisioneventcountdown=1000;
     colliding=true;
+
+    last_time=GetTime();    //Mark the time for the start of the death animation
+    frame=0;                //initialize all times going into the animation routine
+    last_time=GetTime();
+    delta_t=0; 
 
 }
 //============================================
@@ -166,5 +187,35 @@ Vector2 Hero::getplayervel()
 int Hero::getplayerdirection()
 {
     return(direction);
+
+}
+//=============================================
+void Hero::playerdying()    //falling
+{
+    float frameindex=0.08; //duration of time per frame
+    if(alive==0)
+        frameindex*=3;
+
+    delta_t=last_time-GetTime();    //calc the time change since last loop
+    frametimer+=delta_t;
+    last_time=GetTime();            //mark the new start time
+
+    if (frametimer>frameindex)
+    {
+        frame++;
+        if (frame>3)
+            frame=2;    //hold at the last frame
+        frametimer=0;
+        alive=0;
+
+    }
+
+    
+
+    Rectangle source={0+512*(int)frame,512,512,512};
+    Rectangle destin={pos.x,pos.y,512*scale,512*scale};
+
+    DrawTexturePro(media::heroimage,source,destin,{0,0},0,WHITE);
+
 
 }

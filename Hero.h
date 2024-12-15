@@ -28,7 +28,7 @@ private:
     int frame;          //current frame of animation
     int spritesqr;
     int direction;
-    int vitality;      //create variable of type life
+    int alive;      //create variable of type life
 
     bool directionflag;
     
@@ -51,6 +51,7 @@ public:
     Vector2 getplayerpos();
     Vector2 getplayervel();
     int getplayerdirection();
+    void playerdying();
 
 };
 
