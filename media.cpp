@@ -10,6 +10,7 @@ Texture2D media::sink={0};
 Music media::backgroundmusic={0};
 Sound media::lasershot={0};
 Sound media::squish={0};
+Sound media::scream={0};
  
 //====================================
 
@@ -34,6 +35,7 @@ void media::loadMediaFiles()    //static function (see .h)to load media
     backgroundmusic=LoadMusicStream("resources/bgsound.wav");
     lasershot=LoadSound("resources/Laser.wav");
     squish=LoadSound("resources/squish.wav");
+    scream=LoadSound("resources/scream.wav");
 
 
     return;

@@ -163,7 +163,10 @@ void Hero::killplayer()
         return;
 
 
-    alive=2; 
+    alive=2;        //begin dying sequence
+    if(!IsSoundPlaying(media::scream))
+        PlaySound(media::scream);
+        
     collisioneventcountdown=1000;
     colliding=true;
 

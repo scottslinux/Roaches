@@ -18,6 +18,7 @@ public:
 
     static Sound lasershot;
     static Sound squish;
+    static Sound scream;
 
     static Music backgroundmusic;
 
