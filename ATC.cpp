@@ -4,6 +4,7 @@
 #include "Hero.h"
 #include "swarm.h"
 #include "ATC.h"
+#include "scoreboard.h"
 
 
 
@@ -30,6 +31,8 @@ bool ATC::collide(swarm& herd,Hero& player)    //pass the swarm by reference and
                 {
 
                 player.killplayer();
+            
+                
                 std::cout<<"Collision with roach # "<<i<<std::endl;
                 std::cout<<"isAlive() returns: "<<herd.roaches[i].isAlive()<<std::endl;
                 return true; 

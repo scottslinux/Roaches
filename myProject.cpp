@@ -42,6 +42,7 @@ int main()
     start_time=GetTime();    //initialize the last_time to current time
 
 
+//              ​‌‌‍⁡⁣⁢⁣𝕄𝔸𝕀ℕ 𝔾𝔸𝕄𝔼 𝕃𝕆𝕆ℙ⁡​
 
     while(!WindowShouldClose())
     {
@@ -68,8 +69,6 @@ int main()
 
             
             
-
-    
 
 
 

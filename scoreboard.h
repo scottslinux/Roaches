@@ -30,6 +30,7 @@ public:
 
     void drawscreenframe();
     void updateScore(int);
+    void killplayer();
     
 
 };

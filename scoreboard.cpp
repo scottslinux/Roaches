@@ -37,7 +37,7 @@ void scoreboard::drawscreenframe()
     Rectangle sourcerec={0,0,512,512};
     Rectangle destin={2300,50,200,200};
     Color tint={25,25,25,128};     //set the color for the silouette
-    for(int i=1;i<=3;i++)
+    for(int i=1;i<=playerlives;i++)
     {
         destin.x=2000+i*120;
         DrawTexturePro(media::heroimage,sourcerec,destin,{0.0,0.0},0,tint);
@@ -72,3 +72,8 @@ void scoreboard::updateScore(int scorechange)
     
 }
 //===================================================
+void scoreboard::killplayer()
+{
+    --playerlives;
+
+}
