@@ -27,7 +27,7 @@ int main()
 
 
 
-    swarm myswarm(10);
+    swarm myswarm(40);
     Hero guy;
     missile shooter;
     scoreboard titlesandscores;
@@ -63,8 +63,9 @@ int main()
             guy.updateplayer();
             guy.drawplayer();
 
-
-            shooter.fireshot(guy.getplayerpos(),guy.getplayerdirection(),myswarm,delta_time);
+            if(guy.getPlayerHealth()==1)    //only shoot when alive
+                shooter.fireshot(guy.getplayerpos(),guy.getplayerdirection(),myswarm,delta_time);
+            
             ATC::collide(myswarm,guy);
 
             

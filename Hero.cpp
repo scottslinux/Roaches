@@ -166,7 +166,7 @@ void Hero::killplayer()
     alive=2;        //begin dying sequence
     if(!IsSoundPlaying(media::scream))
         PlaySound(media::scream);
-        
+
     collisioneventcountdown=1000;
     colliding=true;
 
@@ -220,5 +220,11 @@ void Hero::playerdying()    //falling
 
     DrawTexturePro(media::heroimage,source,destin,{0,0},0,WHITE);
 
+
+}
+//============================================
+int Hero::getPlayerHealth()
+{
+    return alive;
 
 }

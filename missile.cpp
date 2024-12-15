@@ -2,6 +2,7 @@
 #include "swarm.h"
 #include "media.h"
 #include "ATC.h"
+#include "Hero.h"
 
 
 int missile::laserpower={0};
@@ -32,7 +33,7 @@ missile::missile()  //constructor defiition
 //   get a shot off passing hero pos and direction
 void missile::fireshot(Vector2 pos, int direction,swarm& herd,double dt)
 {
-    if(GetGamepadAxisMovement(0,5)>0 && laserpower>0 && laserduration>0)
+    if(GetGamepadAxisMovement(0,5)>0 && laserpower>0 && laserduration>0 )
     {
         laserduration-=dt;     //decrement the laser blast time;
 

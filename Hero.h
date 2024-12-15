@@ -52,6 +52,7 @@ public:
     Vector2 getplayervel();
     int getplayerdirection();
     void playerdying();
+    int getPlayerHealth();
 
 };
 

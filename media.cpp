@@ -53,6 +53,8 @@ void media::unloadMediaFiles()
 
     UnloadMusicStream(backgroundmusic);
     UnloadSound(lasershot);
+    UnloadSound(scream);
+    UnloadSound(squish);
 
     CloseAudioDevice();
 

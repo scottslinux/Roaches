@@ -22,7 +22,7 @@ bool ATC::collide(swarm& herd,Hero& player)    //pass the swarm by reference and
 {
     
     //check if roach contacts and kills player
-    for(int i=0;i<10;i++)
+    for(int i=0;i<herd.roachesinswarm;i++)
     {
         if(CheckCollisionCircleRec({herd.roaches[i].getbugpos()}
             ,60*herd.roaches[i].getbugscale(),player.getplayerrect()))
