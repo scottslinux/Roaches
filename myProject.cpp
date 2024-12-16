@@ -27,8 +27,11 @@ int main()
     GameBoss.splashscreen();
         if(levelManager::gamestate==0)  return 0; //exit chosen--leave the game
     
-    GameBoss.playlevel();
-
+    //while(levelManager::playerlives>0)  //play until all lives exhausted
+        {
+            GameBoss.playlevel();
+            
+        }
 
 
    

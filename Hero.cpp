@@ -5,6 +5,7 @@
 #include <math.h>
 #include "swarm.h"
 #include "media.h"
+#include "levelManager.h"
 
 
 
@@ -159,13 +160,17 @@ Rectangle Hero::getplayerrect()
 //============================================
 void Hero::killplayer()
 {
+    
     if(alive==2 || alive==0)    //if death sequence already underway
         return;
 
 
     alive=2;        //begin dying sequence
     if(!IsSoundPlaying(media::scream))
+    {
         PlaySound(media::scream);
+        levelManager::playerlives--;    //decrement lives
+    }
 
     collisioneventcountdown=1000;
     colliding=true;
@@ -220,7 +225,9 @@ void Hero::playerdying()    //falling
 
     DrawTexturePro(media::heroimage,source,destin,{0,0},0,WHITE);
 
-
+  //  deathduration-=delta_t;     //tick down the death sequence time
+  //  if(deathduration<=0)
+     //   std::cout<<"times up...\n";
 }
 //============================================
 int Hero::getPlayerHealth()

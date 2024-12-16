@@ -1,5 +1,6 @@
 #include "scoreboard.h"
 #include "media.h"
+#include "levelManager.h"
 
 
 //===================================================
@@ -7,9 +8,7 @@ scoreboard::scoreboard()    //constructor
 {
     
     playerhealth=100;
-    score=0;
-    level=1;
-    playerlives=3;
+    
 
     //only load the font once
 
@@ -33,11 +32,12 @@ void scoreboard::drawscreenframe()
     DrawTextEx(media::titlefont,"INFESTATION",{1000,50},150,5,YELLOW);
 
 
+    //    ⁡⁣⁢⁣𝗗𝗥𝗔𝗪 𝗧𝗛𝗘 𝗣𝗟𝗔𝗬𝗘𝗥 𝗟𝗜𝗩𝗘𝗦 𝗦𝗜𝗟𝗢𝗨𝗘𝗧𝗧𝗘𝗦⁡
     Rectangle sourcerec={0,0,512,512};
     Rectangle destin={2300,50,200,200};
     Color tint={25,25,25,128};     //set the color for the silouette
-    for(int i=1;i<=playerlives;i++)
-    {
+    for(int i=1;i<=levelManager::playerlives;i++)
+    {//levelManager::playerlives
         destin.x=2000+i*120;
         DrawTexturePro(media::heroimage,sourcerec,destin,{0.0,0.0},0,tint);
     }

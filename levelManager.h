@@ -18,6 +18,7 @@ public:
 
     static int gamestate;  //0=exiting, 1=playing, 2=splash screen hold
     static int level;
+    static int playerlives;
 
     levelManager();
     void splashscreen();

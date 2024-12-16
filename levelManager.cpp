@@ -13,11 +13,13 @@
 
 int levelManager::gamestate={0};
 int levelManager::level={0};
+int levelManager::playerlives={0};
 
 levelManager::levelManager()
 {
   gamestate=2;  //start off holding at splash screen
   level=0;      //start off 1st difficulty level
+  playerlives=3; //start with 3 players
 
 }
 //====================================================
