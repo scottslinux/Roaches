@@ -9,10 +9,6 @@
 #include "ATC.h"
 
 
-void collisionChecker(swarm herd, Hero man);    //forward prototype
-
-bool collchcecker(int, int); //prototype
-
 
 int main()
 {
