@@ -11,32 +11,47 @@
 #include "swarm.h"
 #include "media.h"
 
-
+int levelManager::gamestate={0};
+int levelManager::level={0};
 
 levelManager::levelManager()
 {
+  gamestate=2;  //start off holding at splash screen
+  level=0;      //start off 1st difficulty level
+
 }
 //====================================================
 void levelManager::splashscreen()
 {
     PlayMusicStream(media::splashmusic);
+    
+    swarm solobug(3);
 
-    while(!IsKeyPressed(KEY_SPACE))
+    while(!IsKeyPressed(KEY_SPACE) && !IsKeyPressed(KEY_X))
         {
 
       UpdateMusicStream(media::splashmusic);
         BeginDrawing();
 
 
-
+        //Draw the Roach Photo
         Rectangle source={0,0,media::splash.width,media::splash.height};
         Rectangle destin={0,0,GetScreenWidth(),GetScreenHeight()};
         DrawTexturePro(media::splash,source,destin,{0,0},0,WHITE);
 
+        DrawTextPro(media::titlefont,"PRESS SPACEBAR TO PLAY",{1200,1800},{0,0},0,120,5,YELLOW);
+        DrawTextPro(media::titlefont,"     X TO EXIT",{1600,2000},{0,0},0,80,5,YELLOW);
+
+        solobug.displayswarm();
+
+
         EndDrawing();
 
-        }
+        
 
+        }
+      if(IsKeyPressed(KEY_X))
+        levelManager::gamestate=0;      //set the state to exit the game
 
     return;
 

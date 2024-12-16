@@ -20,7 +20,6 @@ private:
     double timer;
 
     
-    Font titlefont;
     Texture2D lifeIcon;
 
 

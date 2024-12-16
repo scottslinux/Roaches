@@ -23,7 +23,9 @@ int main()
     media::loadMediaFiles();        // Load up all of the sights and sounds!
     levelManager GameBoss;  //instantiate a level Management object--a game instance
 
+
     GameBoss.splashscreen();
+        if(levelManager::gamestate==0)  return 0; //exit chosen--leave the game
     
     GameBoss.playlevel();
 

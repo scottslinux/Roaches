@@ -15,6 +15,7 @@ public:
     static Texture2D heroimage;
     static Texture2D sink;
     static Texture2D splash;
+    static Font titlefont;
 
 
     static Sound lasershot;
