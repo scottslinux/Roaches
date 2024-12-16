@@ -18,7 +18,7 @@ private:
     Vector2 spritecntr{0,0};
 
     double frametimer{0};
-    double last_time{0};   //time stamp for last movement
+    double last_time{0};   //time stamp for last movement.
     double deathclock{0};
     double frametimedeath{0};
     static double deltaT;
