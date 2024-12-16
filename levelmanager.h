@@ -23,7 +23,8 @@ public:
 
     levelmanager(/* args */);
     void splashScreen();
-    
+    void playGame();        //run the game
+
 
 
 };
