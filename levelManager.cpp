@@ -88,7 +88,7 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
 
 //              ​‌‌‍⁡⁣⁢⁣𝕄𝔸𝕀ℕ 𝔾𝔸𝕄𝔼 𝕃𝕆𝕆ℙ⁡​
 
-    while (!WindowShouldClose())
+    while ((levelManager::playerdead==false) && (!WindowShouldClose()))
     {
         //              ⁡⁣⁢⁣𝗗𝗘𝗟𝗧𝗔-𝗧𝗜𝗠𝗘 𝗖𝗔𝗟𝗖𝗨𝗟𝗔𝗧𝗜𝗢𝗡𝗦⁡
         delta_time=GetTime()-start_time;;    //𝗰𝗮𝗹𝗰 𝗵‍𝗼𝘄 𝗹𝗼𝗻𝗴 𝘄𝗲 𝘄𝗲𝗿𝗲 𝗶𝗻 𝘁𝗵𝗲 𝗹𝗼𝗼𝗽

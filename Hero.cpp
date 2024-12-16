@@ -205,9 +205,9 @@ void Hero::playerdying()    //falling
     if(alive==0)
         frameindex*=3;
 
-    delta_t=last_time-GetTime();    //calc the time change since last loop
+   
+    delta_t=GetTime()-last_time;
     frametimer+=delta_t;
-    last_time=GetTime();            //mark the new start time
 
     if (frametimer>frameindex)
     {
@@ -217,18 +217,29 @@ void Hero::playerdying()    //falling
         frametimer=0;
         alive=0;
 
+        
+
     }
 
-    
+    deathdelay=deathdelay-delta_t;
+        std::cout<<"death delay: "<<deathdelay<<"  Delta T: "<<delta_t<<std::endl;
+
+    if (deathdelay<=0)
+        {
+            levelManager::playerdead=true;
+            
+
+
+        }
 
     Rectangle source={0+512*(int)frame,512,512,512};
     Rectangle destin={pos.x,pos.y,512*scale,512*scale};
 
     DrawTexturePro(media::heroimage,source,destin,{0,0},0,WHITE);
 
-    deathdelay-=delta_t;     //tick down the death sequence time
-    if(deathdelay<=0)
-        levelManager::playerdead=true;  //will cause exit the drawing loop
+    last_time=GetTime();
+  
+
 }
 //============================================
 int Hero::getPlayerHealth()
