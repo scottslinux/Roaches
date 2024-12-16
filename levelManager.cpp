@@ -43,8 +43,9 @@ void levelManager::splashscreen()
         Rectangle destin={0,0,GetScreenWidth(),GetScreenHeight()};
         DrawTexturePro(media::splash,source,destin,{0,0},0,WHITE);
 
-        DrawTextPro(media::titlefont,"PRESS SPACEBAR TO PLAY",{1200,1800},{0,0},0,120,5,YELLOW);
-        DrawTextPro(media::titlefont,"     X TO EXIT",{1600,2000},{0,0},0,80,5,YELLOW);
+        DrawTextPro(media::titlefont,"PRESS SPACEBAR TO PLAY",{GetScreenWidth()/2-600,GetScreenHeight()-300}
+                                                                ,{0,0},0,120,5,YELLOW);
+        DrawTextPro(media::titlefont,"     X TO EXIT",{GetScreenWidth()/2-400,GetScreenHeight()-100},{0,0},0,80,5,YELLOW);
 
         solobug.displayswarm();
 
