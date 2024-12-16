@@ -6,8 +6,10 @@ Texture2D media::bug={0};
 Texture2D media::splat={0};
 Texture2D media::heroimage={0};
 Texture2D media::sink={0};
+Texture2D media::splash={0};
 
 Music media::backgroundmusic={0};
+Music media::splashmusic={0};
 Sound media::lasershot={0};
 Sound media::squish={0};
 Sound media::scream={0};
@@ -25,14 +27,17 @@ media::~media()
 
 void media::loadMediaFiles()    //static function (see .h)to load media
 {
-        //Load all of the image files into static variables
+    //Load all of the image files into static variables
     bug=LoadTexture("resources/Roach sprites.png");
     splat=LoadTexture("resources/splat.png");
     heroimage=LoadTexture("resources/exterminator.png");
     sink=LoadTexture("resources/sink.png");
+    splash=LoadTexture("resources/splash.png");
 
         //Load all of the sound files into static variables
     backgroundmusic=LoadMusicStream("resources/bgsound.wav");
+    splashmusic=LoadMusicStream("resources/splash.wav");
+
     lasershot=LoadSound("resources/Laser.wav");
     squish=LoadSound("resources/squish.wav");
     scream=LoadSound("resources/scream.wav");
@@ -52,6 +57,7 @@ void media::unloadMediaFiles()
     UnloadTexture(sink);
 
     UnloadMusicStream(backgroundmusic);
+    UnloadMusicStream(splashmusic);
     UnloadSound(lasershot);
     UnloadSound(scream);
     UnloadSound(squish);

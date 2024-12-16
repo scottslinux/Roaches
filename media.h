@@ -14,6 +14,7 @@ public:
     static Texture2D splat;
     static Texture2D heroimage;
     static Texture2D sink;
+    static Texture2D splash;
 
 
     static Sound lasershot;
@@ -21,6 +22,7 @@ public:
     static Sound scream;
 
     static Music backgroundmusic;
+    static Music splashmusic;
 
 
 
