@@ -21,6 +21,7 @@ private:
 public:
     levelManager();
     void splashscreen();
+    void playlevel();
     
 };
 
