@@ -21,6 +21,7 @@ private:
     double frametimer;
     double delta_t;
     double last_time;
+    double deathdelay;
 
     float rotation;     //sprite rotation
     float scale;

@@ -33,6 +33,7 @@ Hero::Hero(){
     const int spritesqr=512;
     delta_t=0;
     direction=1;
+    deathdelay=3.0;
 
     alive=1; //0-dead, 1-alive, 2-dying
     
@@ -225,9 +226,9 @@ void Hero::playerdying()    //falling
 
     DrawTexturePro(media::heroimage,source,destin,{0,0},0,WHITE);
 
-  //  deathduration-=delta_t;     //tick down the death sequence time
-  //  if(deathduration<=0)
-     //   std::cout<<"times up...\n";
+    deathdelay-=delta_t;     //tick down the death sequence time
+    if(deathdelay<=0)
+        levelManager::playerdead=true;  //will cause exit the drawing loop
 }
 //============================================
 int Hero::getPlayerHealth()
