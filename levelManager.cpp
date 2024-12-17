@@ -10,6 +10,7 @@
 #include "scoreboard.h"
 #include "swarm.h"
 #include "media.h"
+#include "timer.h"
 
 int levelManager::gamestate={0};
 int levelManager::level={0};
