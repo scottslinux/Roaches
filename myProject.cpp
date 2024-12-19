@@ -27,7 +27,7 @@ int main()
 while (!levelManager::gamestate==0)
 {
     levelManager::playerdead=false;
-    levelManager::playerlives=4;
+    levelManager::playerlives=3;
 
     //probably need to reset all globals for new game
 
