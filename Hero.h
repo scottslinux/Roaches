@@ -3,6 +3,7 @@
 
 #include <raylib.h>
 #include <iostream>
+#include "timer.h"
 
 
 
@@ -32,6 +33,7 @@ private:
     int alive;      //create variable of type life
 
     bool directionflag;
+    Timer death_timer;
     
     
 

@@ -22,18 +22,22 @@ int main()
     InitAudioDevice();
     media::loadMediaFiles();        // Load up all of the sights and sounds!
     levelManager GameBoss;  //instantiate a level Management object--a game instance
+    levelManager::gamestate=2;  //0=exiting, 1=playing, 2=splash screen hold
 
+while (!levelManager::gamestate==0)
+{
+    //probably need to reset all globals for new game
 
     GameBoss.splashscreen();
         if(levelManager::gamestate==0)  return 0; //exit chosen--leave the game
     
-    //while(levelManager::playerlives>0)  //play until all lives exhausted
-        {
+    while(levelManager::playerlives>0)  //play until all lives exhausted
+        {   levelManager::playerdead=false;
             GameBoss.playlevel();
             
         }
 
-
+}
    
     media::unloadMediaFiles();
 

@@ -12,7 +12,6 @@
 
 
 
-
 //===============================================
 //          constructor
 
@@ -41,6 +40,7 @@ Hero::Hero(){
     colrec={pos.x,pos.y,512*scale,512*scale};  //***dummy values */
     colliding=false;
     collisioneventcountdown=0;
+    death_timer;
 
 
     
@@ -172,6 +172,8 @@ void Hero::killplayer()
     {
         PlaySound(media::scream);
         levelManager::playerlives--;    //decrement lives
+        death_timer.start();   // ⁡⁣⁢⁣<--𝗦𝘁𝗮𝗿𝘁 𝗗𝗲𝗮𝘁𝗵 𝘁𝗶𝗺𝗲𝗿 𝗮𝗻𝗱 𝘀𝘁𝗮𝗿𝘁 𝗶𝘁 𝗰𝗼𝘂𝗻𝘁𝗶𝗻𝗴⁡
+        
     }
 
     collisioneventcountdown=1000;
@@ -222,10 +224,9 @@ void Hero::playerdying()    //falling
 
     }
 
-    deathdelay=deathdelay-delta_t;
-        std::cout<<"death delay: "<<deathdelay<<"  Delta T: "<<delta_t<<std::endl;
+    
 
-    if (deathdelay<=0)
+    if (death_timer.elapsed()>5.0)
         {
             levelManager::playerdead=true;
             
