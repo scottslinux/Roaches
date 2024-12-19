@@ -122,6 +122,8 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
 
         EndDrawing();
 
+        std::cout<<"trying to leave after esc..from levelman mainrender loop\n";
+        levelManager::gamestate=0; //trying to leave game completely
         
   
 

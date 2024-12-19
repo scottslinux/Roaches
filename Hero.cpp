@@ -226,7 +226,7 @@ void Hero::playerdying()    //falling
 
     
 
-    if (death_timer.elapsed()>5.0)
+    if (death_timer.elapsed()>2.0)
         {
             levelManager::playerdead=true;
             

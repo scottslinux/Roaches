@@ -26,12 +26,16 @@ int main()
 
 while (!levelManager::gamestate==0)
 {
+    levelManager::playerdead=false;
+    levelManager::playerlives=4;
+
     //probably need to reset all globals for new game
 
     GameBoss.splashscreen();
-        if(levelManager::gamestate==0)  return 0; //exit chosen--leave the game
-    
-    while(levelManager::playerlives>0)  //play until all lives exhausted
+
+    if(levelManager::gamestate==0)  return 0; //exit chosen--leave the game
+            
+    while(levelManager::playerlives>0 && (!levelManager::gamestate==0))  //play until all lives exhausted
         {   levelManager::playerdead=false;
             GameBoss.playlevel();
             
