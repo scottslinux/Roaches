@@ -119,8 +119,17 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
             if(guy.getPlayerHealth()==1)    //only shoot when alive
                 shooter.fireshot(guy.getplayerpos(),guy.getplayerdirection(),myswarm,delta_time);
             
+//debugging
+std::cout << "Pile items in garbage: " << pile.itemsinGarbage << std::endl;
+for (int i = 0; i < pile.itemsinGarbage; i++) {
+    std::cout << "Prize " << i << " at (" 
+              << pile.prizes[i].pos.x << ", " 
+              << pile.prizes[i].pos.y << ")" << std::endl;
+}
+
+
             ATC::collide(myswarm,guy);
-           // ATC::collide(pile,guy);
+            ATC::collide(pile,guy.getplayerrect());
 
             
                 

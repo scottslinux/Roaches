@@ -21,7 +21,7 @@ public:
 
     static bool collide(swarm& herd,Hero& player);    //pass the swarm by reference
     static bool collide(swarm& herd,Vector2,Vector2);        //roach swarm and start/end of laser line
-    //static bool collide(garbage& trash,Hero& player);   //player and the prizes
+    static bool collide(garbage& trash,Rectangle playerrect);   //player and the prizes
 
 
     

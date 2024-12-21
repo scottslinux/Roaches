@@ -69,11 +69,23 @@ bool ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)
 
 }
 //***********************************************************************************
-//bool ATC::collide(garbage& trash, Hero& player)
-//{
+bool ATC::collide(garbage& trash,Rectangle playerrect){
+  for(int i=0;i<trash.itemsinGarbage;i++){
+
+        
+       if(CheckCollisionCircleRec(trash.prizes[i].pos,100,
+           playerrect))
+            {
+              
+              std::cout << "Collision detected!" << std::endl;
+
+              
+              DrawRing(trash.prizes[i].pos,100,120,0,360,0,RED);
+
+              return true;
+            }
+}
+return false;
 
 
-
-
-
-//}
+}

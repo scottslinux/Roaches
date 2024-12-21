@@ -10,7 +10,6 @@ scoreboard::scoreboard()    //constructor
     playerhealth=100;
     
 
-    //only load the font once
 
 
 
