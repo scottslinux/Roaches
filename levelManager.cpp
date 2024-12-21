@@ -11,7 +11,7 @@
 #include "swarm.h"
 #include "media.h"
 #include "timer.h"
-#include "prizes.h"
+#include "garbage.h"
 
 int levelManager::gamestate={0};
 int levelManager::level={0};
@@ -72,7 +72,10 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
 
 
     
-    swarm myswarm(40);
+    swarm myswarm(20);
+    garbage pile(5);
+
+
     Hero guy;
     missile shooter;
     scoreboard titlesandscores;
@@ -107,7 +110,7 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
             
             titlesandscores.drawscreenframe();
             
-    
+            pile.displayGarbage();
             myswarm.displayswarm();
 
             guy.updateplayer();
@@ -117,6 +120,7 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
                 shooter.fireshot(guy.getplayerpos(),guy.getplayerdirection(),myswarm,delta_time);
             
             ATC::collide(myswarm,guy);
+           // ATC::collide(pile,guy);
 
             
                 

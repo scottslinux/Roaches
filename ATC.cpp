@@ -5,6 +5,7 @@
 #include "swarm.h"
 #include "ATC.h"
 #include "scoreboard.h"
+#include "garbage.h"
 
 
 
@@ -67,3 +68,12 @@ bool ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)
     return false;
 
 }
+//***********************************************************************************
+//bool ATC::collide(garbage& trash, Hero& player)
+//{
+
+
+
+
+
+//}
