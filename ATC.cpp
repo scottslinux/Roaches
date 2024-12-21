@@ -81,7 +81,7 @@ bool ATC::collide(garbage& trash,Rectangle playerrect){
 
               
               DrawRing(trash.prizes[i].pos,100,120,0,360,0,RED);
-
+  
               return true;
             }
 }
