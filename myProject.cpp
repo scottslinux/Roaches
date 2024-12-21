@@ -35,8 +35,11 @@ while (!levelManager::gamestate==0)
 
     GameBoss.splashscreen();
 
-    if(levelManager::gamestate==0)  return 0; //exit chosen--leave the game
-            
+    if(levelManager::gamestate==0)  
+        {   
+            media::unloadMediaFiles();
+            return 0; //exit chosen--leave the game. Unload media and exit
+        }   
     while(levelManager::playerlives>0 && (!levelManager::gamestate==0))  //play until all lives exhausted
         {   levelManager::playerdead=false;
             GameBoss.playlevel();

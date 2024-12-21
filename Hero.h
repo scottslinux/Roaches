@@ -1,5 +1,4 @@
-#ifndef HERO_H
-#define HERO_H
+#pragma once
 
 #include <raylib.h>
 #include <iostream>
@@ -59,4 +58,3 @@ public:
 
 };
 
-#endif
