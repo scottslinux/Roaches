@@ -24,6 +24,8 @@ int main()
     levelManager GameBoss;  //instantiate a level Management object--a game instance
     levelManager::gamestate=2;  //0=exiting, 1=playing, 2=splash screen hold
 
+    
+
 while (!levelManager::gamestate==0)
 {
     levelManager::playerdead=false;

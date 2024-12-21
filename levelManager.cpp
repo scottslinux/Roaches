@@ -11,6 +11,7 @@
 #include "swarm.h"
 #include "media.h"
 #include "timer.h"
+#include "prizes.h"
 
 int levelManager::gamestate={0};
 int levelManager::level={0};
@@ -76,6 +77,7 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
     missile shooter;
     scoreboard titlesandscores;
 
+    
 
     int totalroaches=myswarm.roaches.size();
 
@@ -104,6 +106,8 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
 
             
             titlesandscores.drawscreenframe();
+            
+    
             myswarm.displayswarm();
 
             guy.updateplayer();

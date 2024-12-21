@@ -1,6 +1,7 @@
 #include "scoreboard.h"
 #include "media.h"
 #include "levelManager.h"
+#include "prizes.h"
 
 
 //===================================================
@@ -61,6 +62,11 @@ void scoreboard::drawscreenframe()
 
     DrawRectangle(recFull.x,recFull.y,recFull.width,recFull.height,RED);
 
+    
+
+
+
+
 
     
 
@@ -76,3 +82,4 @@ void scoreboard::killplayer()
     --playerlives;
 
 }
+//===================================================

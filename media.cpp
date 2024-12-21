@@ -7,6 +7,7 @@ Texture2D media::splat={0};
 Texture2D media::heroimage={0};
 Texture2D media::sink={0};
 Texture2D media::splash={0};
+Texture2D media::garbage={0};
 Font media::titlefont={0};
 
 Music media::backgroundmusic={0};
@@ -34,6 +35,7 @@ void media::loadMediaFiles()    //static function (see .h)to load media
     heroimage=LoadTexture("resources/exterminator.png");
     sink=LoadTexture("resources/sink.png");
     splash=LoadTexture("resources/splash.png");
+    garbage=LoadTexture("resources/garbage.png");
 
     titlefont=LoadFontEx("resources/Slimespooky.ttf",32,NULL,0);
 
@@ -59,7 +61,7 @@ void media::unloadMediaFiles()
     UnloadTexture(splat);
     UnloadTexture(heroimage);
     UnloadTexture(sink);
-
+    UnloadTexture(garbage);
     UnloadFont(titlefont);
 
     UnloadMusicStream(backgroundmusic);

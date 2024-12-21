@@ -15,6 +15,7 @@ public:
     static Texture2D heroimage;
     static Texture2D sink;
     static Texture2D splash;
+    static Texture2D garbage;
     static Font titlefont;
 
 
