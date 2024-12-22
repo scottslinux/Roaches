@@ -68,7 +68,7 @@ void garbage::displayGarbage()
         else if(prizes[i].exploding==true)
         {
             for(int j=0;j<prizes[i].blast.size();j++)
-            {   Color blastcolor{200,255,0,255};
+            {   Color blastcolor{200,255,0,(255*(prizes[i].blastcount/1000))};
                 prizes[i].blast[j].pos.x+=prizes[i].blast[j].vel.x;
                 prizes[i].blast[j].pos.y+=prizes[i].blast[j].vel.y;
                 DrawCircle(prizes[i].blast[j].pos.x,prizes[i].blast[j].pos.y,10,blastcolor);
@@ -76,7 +76,7 @@ void garbage::displayGarbage()
                 if(prizes[i].blastcount<=0)
                 {
                     prizes[i].exploding=false;
-                    prizes[i].blastcount=50;
+                    prizes[i].blastcount=0;
                 }
 
                 

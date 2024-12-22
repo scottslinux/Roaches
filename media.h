@@ -22,6 +22,7 @@ public:
     static Sound lasershot;
     static Sound squish;
     static Sound scream;
+    static Sound scorebell;
 
     static Music backgroundmusic;
     static Music splashmusic;

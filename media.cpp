@@ -15,6 +15,7 @@ Music media::splashmusic={0};
 Sound media::lasershot={0};
 Sound media::squish={0};
 Sound media::scream={0};
+Sound media::scorebell={0};
  
 //====================================
 
@@ -47,6 +48,7 @@ void media::loadMediaFiles()    //static function (see .h)to load media
     lasershot=LoadSound("resources/Laser.wav");
     squish=LoadSound("resources/squish.wav");
     scream=LoadSound("resources/scream.wav");
+    scorebell=LoadSound("resources/scorebell.wav");
 
 
     return;
@@ -69,6 +71,7 @@ void media::unloadMediaFiles()
     UnloadSound(lasershot);
     UnloadSound(scream);
     UnloadSound(squish);
+    UnloadSound(scorebell);
 
     CloseAudioDevice();
 
