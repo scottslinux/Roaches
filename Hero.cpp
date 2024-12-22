@@ -220,6 +220,8 @@ void Hero::playerdying()    //falling
         frametimer=0;
         alive=0;
 
+        DrawRectangle(0,0,GetScreenWidth(),GetScreenHeight(),RED);
+
         
 
     }

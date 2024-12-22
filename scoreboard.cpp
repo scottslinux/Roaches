@@ -27,8 +27,8 @@ void scoreboard::drawscreenframe()
     DrawTexturePro(media::sink,source,dest,{0,0},0,WHITE);
 
     DrawRectangleGradientV(0,0,GetScreenWidth(),250,GREEN,DARKGREEN);
-    DrawTextEx(media::titlefont,"INFESTATION",{1020,45},150,5,Color{0,0,0,128});  //blackshaddow
-    DrawTextEx(media::titlefont,"INFESTATION",{1000,50},150,5,YELLOW);
+    DrawTextEx(media::scorefont,"INFESTATION",{920,45},180,5,Color{0,0,0,200});  //blackshaddow
+    DrawTextEx(media::scorefont,"INFESTATION",{900,50},180,5,YELLOW);
 
 
     //    ⁡⁣⁢⁣𝗗𝗥𝗔𝗪 𝗧𝗛𝗘 𝗣𝗟𝗔𝗬𝗘𝗥 𝗟𝗜𝗩𝗘𝗦 𝗦𝗜𝗟𝗢𝗨𝗘𝗧𝗧𝗘𝗦⁡
@@ -47,7 +47,7 @@ void scoreboard::drawscreenframe()
     ss<<"Laser Remaining:  "<<laser;
 
     std::string mystring=ss.str();
-    DrawTextEx(media::scorefont,mystring.c_str(),{50,30},80,5,WHITE);
+    DrawTextEx(media::scorefont,mystring.c_str(),{70,30},80,5,WHITE);
 
     ss.str(""); //clear the ss object to use again
     ss.clear();
