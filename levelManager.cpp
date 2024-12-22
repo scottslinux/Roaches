@@ -16,6 +16,7 @@
 int levelManager::gamestate={0};
 int levelManager::level={0};
 int levelManager::playerlives={0};
+int levelManager::score={0};
 bool levelManager::playerdead={0};
 
 levelManager::levelManager()
@@ -24,6 +25,7 @@ levelManager::levelManager()
   level=0;      //start off 1st difficulty level
   playerlives=3; //start with 3 players
   playerdead=false;
+  score=0;
 
 }
 //====================================================

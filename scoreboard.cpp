@@ -47,6 +47,10 @@ void scoreboard::drawscreenframe()
 
     std::string mystring=ss.str();
     DrawText(mystring.c_str(),50,50,50,MAGENTA);
+    
+    
+
+
 
 
     Rectangle recEmpty={100,100,250,100};
