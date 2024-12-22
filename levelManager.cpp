@@ -73,7 +73,7 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
 
     
     swarm myswarm(20);
-    garbage pile(5);
+    garbage pile(20);
 
 
     Hero guy;

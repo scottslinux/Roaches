@@ -8,13 +8,19 @@
 
 //using an initializer list to set only the necessary values
 food::food()
-    : pos{static_cast<float>(GetRandomValue(0, GetScreenWidth())),static_cast<float>(GetRandomValue(200, GetScreenHeight()))},
-      rotation(static_cast<float>(GetRandomValue(0, 360))),
+    : pos{500,500},
+      rotation((GetRandomValue(0, 360))),
       prizevalue(GetRandomValue(50, 500)),
-      frame(GetRandomValue(0, 3)),
-      origin{512 * scale / 2, 512 * scale / 2} {
-    // Constructor body (if needed)
-}
+      frame(GetRandomValue(0, 5)),
+      origin{512 * scale / 2, 512 * scale / 2},
+      caught{false} 
+      
+      
+      {
+        pos.x=GetRandomValue(300,GetScreenWidth());
+        pos.y=GetRandomValue(300,GetScreenHeight());
+    
+    }
 
 
 
@@ -26,14 +32,12 @@ garbage::garbage(int num)
 {
     //create a vector of food items while they rot...
     itemsinGarbage=num;  //ho
-
-    //std::vector<food> prizes;
-
     prizes.resize(num);
 }
 //=====================================================
 void garbage::displayGarbage()
 {
+    
     for(int i=0;i<itemsinGarbage;i++)
     {
         if(prizes[i].caught==false) //only display if not caught
@@ -44,6 +48,8 @@ void garbage::displayGarbage()
 
             DrawTexturePro(media::garbage,source,destin,prizes[i].origin,0,WHITE);
 
+            std::cout<<"garbage item "<<i<<" at "<<prizes[i].pos.x<<","<<prizes[i].pos.y<<"\n";
+            std::cout<<"Screen widthXheight is "<<GetScreenWidth()<<"X"<<GetScreenHeight()<<"\n";
         }
         
 

@@ -19,7 +19,7 @@ struct blast_particle    //
 //Modern way brother...initialize the values in the constructor!!!
 class food {
 public:
-    Vector2 pos = {0, 0};  // Default position
+    Vector2 pos={1000,1000};  // Default position
     float scale = 0.4;     // Default scale
     float rotation = 0;    // Default rotation
     int prizevalue = 0;    // Default prize value
