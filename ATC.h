@@ -1,16 +1,18 @@
 #pragma once
 
 #include <iostream>
+#include "garbage.h"
 #include "raylib.h"
 #include "insect.h"
 #include "Hero.h"
 #include "swarm.h"
-#include "garbage.h"
+
 
 //This module will consist of static methods used to detect
 //collisions and set flags. It may or may not end up implementing 
 //the results of the collision..let's let it evolve.
 
+class garbage;  //forward declaration   needed to overcome strange error
 class ATC
 {
 

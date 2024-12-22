@@ -1,33 +1,19 @@
-#include"garbage.h"
-
-#include<iostream>
-#include<vector>
+#include "garbage.h"
+#include <iostream>
+#include <vector>
 #include "raylib.h"
 #include "media.h"
 #include "Hero.h"
 #include "levelManager.h"
 
-
+//using an initializer list to set only the necessary values
 food::food()
-{
-    pos.x=GetRandomValue(0,GetScreenWidth());
-    pos.y=GetRandomValue(200,GetScreenHeight());
-    scale=0.4;  //start with fixed scale
-    prizevalue=GetRandomValue(50,500);
-    frame=GetRandomValue(0,3);
-    origin={512*scale/2,512*scale/2};
-    rotation=GetRandomValue(0,360);
-    
-    
-    caught=false;
-    display=true;
-
-
-    bool caught;
-    bool display;
-
-
-
+    : pos{GetRandomValue(0, GetScreenWidth()), GetRandomValue(200, GetScreenHeight())},
+      rotation(GetRandomValue(0, 360)),
+      prizevalue(GetRandomValue(50, 500)),
+      frame(GetRandomValue(0, 3)),
+      origin{512 * scale / 2, 512 * scale / 2} {
+    // Constructor body (if needed)
 }
 
 
