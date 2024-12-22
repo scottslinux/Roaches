@@ -135,8 +135,8 @@ void Hero::controllerinput()
 
     
 
-    vel.x=500*x;  //translate stick to velocity
-    vel.y=500*y;
+    vel.x=600*x;  //translate stick to velocity
+    vel.y=600*y;
 
     //adjust player sprite direction
     if(vel.x>0) 
