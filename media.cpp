@@ -9,6 +9,7 @@ Texture2D media::sink={0};
 Texture2D media::splash={0};
 Texture2D media::garbage={0};
 Font media::titlefont={0};
+Font media::scorefont={0};
 
 Music media::backgroundmusic={0};
 Music media::splashmusic={0};
@@ -39,7 +40,7 @@ void media::loadMediaFiles()    //static function (see .h)to load media
     garbage=LoadTexture("resources/garbage.png");
 
     titlefont=LoadFontEx("resources/Slimespooky.ttf",32,NULL,0);
-
+    scorefont=LoadFontEx("resources/scorefont.TTF",32,NULL,0);
 
         //Load all of the sound files into static variables
     backgroundmusic=LoadMusicStream("resources/bgsound.wav");
@@ -65,6 +66,7 @@ void media::unloadMediaFiles()
     UnloadTexture(sink);
     UnloadTexture(garbage);
     UnloadFont(titlefont);
+    UnloadFont(scorefont);
 
     UnloadMusicStream(backgroundmusic);
     UnloadMusicStream(splashmusic);

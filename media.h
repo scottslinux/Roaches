@@ -17,6 +17,7 @@ public:
     static Texture2D splash;
     static Texture2D garbage;
     static Font titlefont;
+    static Font scorefont;
 
 
     static Sound lasershot;

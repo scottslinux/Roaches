@@ -46,16 +46,20 @@ void scoreboard::drawscreenframe()
     ss<<"Laser Remaining:  "<<laser;
 
     std::string mystring=ss.str();
-    DrawText(mystring.c_str(),50,50,50,MAGENTA);
-    
-    
+    DrawTextEx(media::scorefont,mystring.c_str(),{50,30},80,5,WHITE);
+
+    ss.str(""); //clear the ss object to use again
+    ss.clear();
+
+    ss<<"SCORE: "<<levelManager::score;
+    mystring=ss.str();
+    DrawTextEx(media::scorefont,mystring.c_str(),{200,140},100,5,WHITE);
 
 
 
+    Rectangle recEmpty={150,120,250,15};
 
-    Rectangle recEmpty={100,100,250,100};
-
-    Rectangle recFull={100,100,laser,100};
+    Rectangle recFull={150,120,laser,15};
 
 
 
