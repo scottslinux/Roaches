@@ -13,12 +13,26 @@ food::food()
       prizevalue(GetRandomValue(50, 500)),
       frame(GetRandomValue(0, 5)),
       origin{512 * scale / 2, 512 * scale / 2},
-      caught{false} 
+      caught{false}, 
+      exploding{true},
+      blastcount{2000}
+      
+      
       
       
       {
         pos.x=GetRandomValue(300,GetScreenWidth());
         pos.y=GetRandomValue(300,GetScreenHeight());
+
+        blast.resize(100);   //x particles per blast
+
+        for(int i=0;i<blast.size();i++)
+        {
+            blast[i].pos=pos;
+            blast[i].vel.x=GetRandomValue(-50,50);
+            blast[i].vel.y=GetRandomValue(-50,50);
+            blast[i].life=true;
+        }
     
     }
 
@@ -51,7 +65,23 @@ void garbage::displayGarbage()
             std::cout<<"garbage item "<<i<<" at "<<prizes[i].pos.x<<","<<prizes[i].pos.y<<"\n";
             std::cout<<"Screen widthXheight is "<<GetScreenWidth()<<"X"<<GetScreenHeight()<<"\n";
         }
-        
+        else if(prizes[i].exploding==true)
+        {
+            for(int j=0;j<prizes[i].blast.size();j++)
+            {   Color blastcolor{200,255,0,255};
+                prizes[i].blast[j].pos.x+=prizes[i].blast[j].vel.x;
+                prizes[i].blast[j].pos.y+=prizes[i].blast[j].vel.y;
+                DrawCircle(prizes[i].blast[j].pos.x,prizes[i].blast[j].pos.y,10,blastcolor);
+                prizes[i].blastcount-=1;
+                if(prizes[i].blastcount<=0)
+                {
+                    prizes[i].exploding=false;
+                    prizes[i].blastcount=50;
+                }
+
+                
+            }
+        }
 
 
     }

@@ -27,8 +27,10 @@ public:
     Vector2 origin = {0, 0}; // Default origin
     bool caught = false;   // Default caught status
     bool display = true;   // Default display status
+    bool exploding=true;
+    int blastcount=1000;
 
-    std::vector<blast_particle> blast;  // Default blast status
+    std::vector<blast_particle> blast;  // Default blast list
 
 
     food();  // Constructor
