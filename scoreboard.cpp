@@ -42,6 +42,7 @@ void scoreboard::drawscreenframe()
     }
 
     int laser=missile::getremainlaser();
+    laser=laser*2;  //double the size of the laser bar
     std::stringstream ss;
     ss<<"Laser Remaining:  "<<laser;
 
@@ -53,13 +54,13 @@ void scoreboard::drawscreenframe()
 
     ss<<"SCORE: "<<levelManager::score;
     mystring=ss.str();
-    DrawTextEx(media::scorefont,mystring.c_str(),{200,140},100,5,WHITE);
+    DrawTextEx(media::scorefont,mystring.c_str(),{150,140},100,5,WHITE);
 
 
 
-    Rectangle recEmpty={150,120,250,15};
+    Rectangle recEmpty={180,110,500,15};
 
-    Rectangle recFull={150,120,laser,15};
+    Rectangle recFull={180,110,laser,15};
 
 
 

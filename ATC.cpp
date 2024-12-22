@@ -55,6 +55,7 @@ bool ATC::collide(swarm& herd,Vector2 startpt,Vector2 endpt)
                 {
                   if (herd.roaches[i].isAlive())
                   {
+                    levelManager::score+=50; //add to the score
                     herd.roaches[i].killroach();    //simple method sets alive to 0
                     
                     return true;
@@ -76,7 +77,7 @@ bool ATC::collide(garbage& trash,Rectangle playerrect){
        if(CheckCollisionCircleRec(trash.prizes[i].pos,100,
            playerrect) && !trash.prizes[i].caught)  //if the player is close enough to the food
             {
-              
+              levelManager::score+=100; //add to the score
               trash.prizes[i].caught=true;  //the player has grabbed the food
               if(!IsSoundPlaying(media::scorebell))
               {
