@@ -7,6 +7,15 @@
 #include "Hero.h"
 #include "levelManager.h"
 
+
+
+struct blast_particle    //
+{   
+    Vector2 pos = {0, 0};  // Default position
+    Vector2 vel = {0, 0};  // Default velocity
+    bool life=true;        // Default life status
+};
+
 //Modern way brother...initialize the values in the constructor!!!
 class food {
 public:
@@ -18,6 +27,9 @@ public:
     Vector2 origin = {0, 0}; // Default origin
     bool caught = false;   // Default caught status
     bool display = true;   // Default display status
+
+    std::vector<blast_particle> blast;  // Default blast status
+
 
     food();  // Constructor
 };
@@ -33,5 +45,5 @@ public:
 
     garbage(int num);  // constructor creates a bunch of rotten food = garbage
     void displayGarbage();
-    
+
 };
