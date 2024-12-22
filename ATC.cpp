@@ -77,10 +77,10 @@ bool ATC::collide(garbage& trash,Rectangle playerrect){
            playerrect))
             {
               
-              std::cout << "Collision detected!" << std::endl;
+              //DrawRing(trash.prizes[i].pos,100,120,0,360,0,RED);
 
-              
-              DrawRing(trash.prizes[i].pos,100,120,0,360,0,RED);
+              trash.prizes[i].caught=true;  //the player has grabbed the food
+
   
               return true;
             }

@@ -7,6 +7,7 @@
 #include "Hero.h"
 #include "levelManager.h"
 
+//Modern way brother...initialize the values in the constructor!!!
 class food {
 public:
     Vector2 pos = {0, 0};  // Default position
@@ -32,4 +33,5 @@ public:
 
     garbage(int num);  // constructor creates a bunch of rotten food = garbage
     void displayGarbage();
+    
 };

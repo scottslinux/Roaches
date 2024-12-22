@@ -115,11 +115,10 @@ double start_time=GetTime();  //INITIALIZE THE TIME VARIABLES
 
             guy.updateplayer();
             guy.drawplayer();
-
             if(guy.getPlayerHealth()==1)    //only shoot when alive
                 shooter.fireshot(guy.getplayerpos(),guy.getplayerdirection(),myswarm,delta_time);
             
-
+            //update garbage---keep track and run animations from here
 
 
             ATC::collide(myswarm,guy);
